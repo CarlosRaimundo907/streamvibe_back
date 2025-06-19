@@ -1,5 +1,6 @@
 package com.springvibe.api.model.endereco;
 
+
 public record DadosCadastroEndereco(
 
 String rua,

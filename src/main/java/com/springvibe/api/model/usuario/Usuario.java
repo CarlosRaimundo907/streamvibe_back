@@ -1,25 +1,30 @@
 package com.springvibe.api.model.usuario;
 
+import com.springvibe.api.model.endereco.Endereco;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
 
 // Nome,data de nascimento. emai, senha, cpf => Tudo String
 public class Usuario {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
-    private int id;
     private String nome;
     private String dataNascimento;
     private String email;
     private String senha;
     private String cpf;
+
+    @Embedded
+    private Endereco endereco;
 
     public Usuario (DadosCadastroUsuario dados){
         this.nome = dados.nome();
@@ -27,6 +32,7 @@ public class Usuario {
         this.email = dados.email();
         this.senha = dados.senha();
         this.cpf = dados.cpf();
+        this.endereco = new Endereco(dados.endereco());
 
     }
    

@@ -1,15 +1,15 @@
 package com.springvibe.api.model.endereco;
 
-    import lombok.*;
+import jakarta.persistence.*;
+import lombok.*;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-
+@Embeddable
 public class Endereco {
-   
-    private int id;
+    
     private String rua;
     private String numero;
     private String bairro;
