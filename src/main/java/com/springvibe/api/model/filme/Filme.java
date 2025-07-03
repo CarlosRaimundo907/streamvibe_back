@@ -26,6 +26,8 @@ public class Filme {
     private String elenco;
     private String sinopse;
 
+    private Boolean ativo = true;
+
     public Filme (DadosCadastroFilme dados) {
         this.nome = dados.nome();
         this.estudio = dados.estudio();
@@ -36,5 +38,23 @@ public class Filme {
         this.elenco = dados.elenco();
         this.sinopse = dados.sinopse();
     }
+    
+    public void exclusaoLogica() {
+        this.ativo = false;
+    }
 
+    public void atualizarInformacoes(DadosAtualizacaoFilme dados) {
+        if(dados.nome() != null) {
+            this.nome = dados.nome();
+        }
+        if(dados.diretor() != null) {
+                this.diretor = dados.diretor();
+        }
+        if(dados.estudio() != null) {
+                    this.estudio = dados.estudio();
+            
+        }
+    }
 }
+// UC 5 - Modelos para serem utilizados no projeto.
+
